@@ -1,0 +1,41 @@
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-family: 'Rampart One', cursive;
+    font-size: 62px;
+    padding: 20px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding: 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    height: 425px;
+    width: 425px;
+    margin: auto;
+}
+
+.screen {
+    display: grid;
+    height: 100px;
+    width: 425px;
+    margin: auto;
+    border-radius: 20%;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.btn {
+    display: block;
+    border: 1px solid black;
+    gap: 1px;
+    font-size: 36px !important;
+    height: 90%;
+    width: 90%;
+    text-align: center;
+}

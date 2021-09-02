@@ -13,36 +13,67 @@ const minusBtn = document.querySelector('#minus');
 const multiplyBtn = document.querySelector('#multiply');
 const divideBtn = document.querySelector('#divide');
 const clrBtn = document.querySelector('#clr');
-const ansBtn = document.querySelector('#ans');
+const equalBtn = document.querySelector('#equals');
 const screen = document.querySelector('.screen');
 
 const numBtns = document.querySelectorAll('.num');
 const opBtns = document.querySelectorAll('.ops');
+const numBtnsArr = Array.from(numBtns);
+const opBtnsArr = Array.from(opBtns);
 
-let factor1, factor2, ans;
+let eqArr = [];
 let operators = ['+', '-', '*', '/'];
+
+function clrScreen() {
+    screen.textContent = '';
+}
+
+function clrArr() {
+    eqArr = [];
+}
+
+function clrOps() {
+    opBtns.forEach(e => {
+        e.setAttribute('value', 'OFF');
+    })
+}
 
 numBtns.forEach((e, i) => {
 
     e.addEventListener('click', () => {
+        
+        opBtns.forEach(e => {
+            if (e.getAttribute('value') === 'ON') {
+                clrScreen();
+                e.setAttribute('value', 'OFF');
+            }
+        })
+
         if (e.textContent === '0') {
-            eqStr += '0';
             screen.textContent += '0';
+            eqArr.push('0');
         } else {
-            screen.textContent += `${i+1}`;
+            screen.textContent += `${i + 1}`;
+            eqArr.push(e.textContent);
         }
     })
+
+    /*if (opBtnsArr.some(e, i => {
+        opBtns[i].getAttribute('value') === 'ON' ? true : false;
+    }))*/
+
 })
 
-opBtns.forEach((e, i) => {
+
+opBtns.forEach((e) => {
     e.addEventListener('click', () => {
-        eqStr += `${operators[i]}`;
-
-    })
-})
+        e.setAttribute('value', 'ON');
+        eqArr.push(e.textContent);
+    })})
 
 
 clrBtn.addEventListener('click', () => {
-    eqStr = '';
-    screen.textContent = '';
+    clrScreen();
+    clrArr();
+    clrOps();
 })

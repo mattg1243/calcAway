@@ -41,7 +41,7 @@ function clrOps() {
 numBtns.forEach((e, i) => {
 
     e.addEventListener('click', () => {
-        
+
         opBtns.forEach(e => {
             if (e.getAttribute('value') === 'ON') {
                 clrScreen();
@@ -68,8 +68,11 @@ numBtns.forEach((e, i) => {
 opBtns.forEach((e) => {
     e.addEventListener('click', () => {
         e.setAttribute('value', 'ON');
-        eqArr.push(e.textContent);
-    })})
+        if (!isNaN(eqArr[0]) && eqArr[eqArr.le] !== e.textContent) {
+            eqArr.push(e.textContent);
+        }
+    })
+})
 
 
 clrBtn.addEventListener('click', () => {
@@ -77,3 +80,15 @@ clrBtn.addEventListener('click', () => {
     clrArr();
     clrOps();
 })
+
+function solve(eqArr) {
+    let factors = [];
+    let operands = [];
+    let eqLength = eqArr.length;
+
+    for (let i = 0; i < eqLength; i++) {
+        if (eqArr[i]) {
+
+        }
+    }
+}

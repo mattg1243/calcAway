@@ -27,11 +27,11 @@
     height: 100px;
     width: 385px;
     margin: auto;
-    border-radius: 20%;
     font-family: 'Press Start 2P', cursive;
     font-size: 48px;
-    overflow: scroll;
-    text-overflow: ellipsis;
+    /* this needs work, no ellipsis are showing up... */
+    overflow: hidden;
+    text-overflow: clip ellipsis;
 }
 
 .btn {
